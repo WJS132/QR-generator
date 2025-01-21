@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Kodów QR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #qrcode {
+            width: 210px;
+            height: 210px;
+            padding: 5px;
+            margin: auto; 
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generator kodów QR</h1>
+    <input type="text" id="qrInput" placeholder="Wpisz tekst lub link" style="width: 300px; padding: 5px;">
+    <button onclick="generateQR()">Generuj kod QR</button>
+    <br><br>
+    <input type="text" id="fileNameInput" placeholder="Wpisz nazwę pliku (bez rozszerzenia)" style="width: 300px; padding: 5px;">
+    <button onclick="downloadQR()">Pobierz kod QR</button>
+    <div id="qrcode"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script>
+        function generateQR() {
+            const qrContainer = document.getElementById("qrcode");
+            const input = document.getElementById("qrInput").value;
+
+            qrContainer.innerHTML = "";
+
+            if (input.trim() === "") {
+                alert("Wpisz tekst lub link, aby wygenerować kod QR!");
+                return;
+            }
+
+            new QRCode(qrContainer, {
+                text: input,
+                width: 200,
+                height: 200,
+            });
+        }
+
+        function downloadQR() {
+            const qrContainer = document.getElementById("qrcode");
+            const canvas = qrContainer.querySelector("canvas");
+            const fileNameInput = document.getElementById("fileNameInput").value.trim();
+
+            if (!canvas) {
+                alert("Najpierw wygeneruj kod QR!");
+                return;
+            }
+
+            if (fileNameInput === "") {
+                fileNameInput.innerHTML = "qr-code";
+                return;
+            }
+
+            const link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download = `${fileNameInput}.png`;
+            link.click();
+        }
+    </script>
+</body>
+</html>
