@@ -119,11 +119,13 @@ h1{
         margin-top: 10px;
         margin-bottom: 20px;
     }
-    .container{
-        height: 80vh;
-    }
     .generateButton{
         font-size: 31px;
+    }
+}
+@media(max-width: 500px){
+    .container{
+        height: 80vh;
     }
 }
 
