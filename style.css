@@ -127,6 +127,9 @@ h1{
     .container{
         height: 80vh;
     }
+    body{
+        height: 90vh;
+    }
 }
 
 
