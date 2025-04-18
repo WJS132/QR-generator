@@ -93,7 +93,6 @@ h1{
 
 
 .downloadButton{
-    content: "&#x2193";
     background-color: #1b2cc1;
     color: #ebebeb;
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
@@ -102,6 +101,11 @@ h1{
     line-height: 34px;
     width: 39px;
     height: 39px;
+}
+
+.downloadButton::before {
+    content: "&#x2193";
+    font-size: 30px;
 }
 
 .downloadButton:hover{
@@ -126,7 +130,7 @@ h1{
     .generateButton{
         font-size: 31px;
     }
-    .downloadButton{
+    .downloadButton::before{
         content: "⭳";
     }
 }
