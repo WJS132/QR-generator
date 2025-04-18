@@ -93,6 +93,7 @@ h1{
 
 
 .downloadButton{
+    content: "&#x2193";
     background-color: #1b2cc1;
     color: #ebebeb;
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
@@ -118,6 +119,15 @@ h1{
     h1{
         margin-top: 10px;
         margin-bottom: 20px;
+    }
+    .container{
+        height: 80vh;
+    }
+    .generateButton{
+        font-size: 31px;
+    }
+    .downloadButton{
+        content: "⭳";
     }
 }
 
