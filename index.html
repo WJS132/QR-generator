@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Kodów QR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Generator kodów QR</h1>
+        <div class="containerGenerowanie">
+            <textarea id="qrInput" placeholder="Wpisz tekst"></textarea>
+            <button class="generateButton" onclick="generateQR()">✦</button>
+        </div>
+        <div class="center">
+            <div id="qrcode"></div>
+        </div>
+        <div class="containerPobieranie">
+            <textarea id="fileNameInput" placeholder="Wpisz nazwę pliku"></textarea>
+            <button class="downloadButton" onclick="downloadQR()">⭳</button>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
